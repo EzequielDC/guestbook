@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %} index{% endblock %}
+{% block content %}
+<div class="rom-fluid">
+<div class="hero-unit">
+   <center> <h1>:D Hi!! You Welcome!! :p</h1></center>
+</div>
+
+<section class="row-fluid">
+<p>
+    <a href="{% url agregar %}" class="btn btn-primary">Agregar</a>
+</p>
+    <table class="table table-borderer">
+        <tr>
+            <th>User</th>
+            <th>Email</th>
+            <th>Message</th>
+            <th>Date</th>
+            <td>Actions</td>
+        </tr>
+        {% for visit in visits %}
+            <tr>
+                <td>{{ visit.user }}</td>
+                <td>{{ visit.email }}</td>
+                <td>{{ visit.text }}</td>
+                <td>{{ visit.date }}</td>
+                <td><a href="{% url editar visit.id %}" class="btn">Editar</a> </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+</section>
+</div>
+{% endblock %}
